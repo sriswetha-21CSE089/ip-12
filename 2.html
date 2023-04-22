@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            
+            </style>
+    </head>
+    <body>
+       <form>
+           <center>
+               <h1>BOOK DETAILS</h1>
+               bookid:<input type="text" id="t1"><br><br>  
+                  <input style="text-align:center" type="button" value="submit" onclick="display()">
+               
+            <div id="c"> </div>
+           </center>
+        </form>
+        <script>
+            function display()
+            {
+                //document.write("hii");
+                var doc;
+                x=new XMLHttpRequest();
+                //alert("2");
+                
+                x.onreadystatechange=function()
+                {
+                    //alert("3");
+                    if(x.readyState==4&&x.status==200)
+                    {
+                       doc=x.responseXML;
+                       var a=doc.getElementsByTagName("book");
+                       //alert(a.length);
+                       var b=document.getElementById('t1').value;
+                       //alert(b);
+                       for(i=0;i<a.length;i++)
+                       {
+                           //document.write(a[i].getElementsByTagName("bookid")[0].childNodes[0].nodeValue);
+                           if(b.match(a[i].getElementsByTagName("bookid")[0].childNodes[0].nodeValue))
+                           {
+                              
+                               j=i;
+                            //  document.getElementById('c').innerHTML="<b>name:</b>"+a[i].getElementsByTagName("bname")[0].childNodes[0].nodeValue+"<br><b>author:</b>"+a[i].getElementsByTagName("author")[0].childNodes[0].nodeValue+"<br><b>price:</b>"+a[i].getElementsByTagName("price")[0].childNodes[0].nodeValue;
+                               document.getElementById('c').innerHTML="<br><br><table border='2'><tr><td><b>name</b></td><td><b>Author</b></td><td><b>price</b></td></tr><tr><td>"+a[i].getElementsByTagName("bname")[0].childNodes[0].nodeValue+"</td><td>"+a[i].getElementsByTagName("author")[0].childNodes[0].nodeValue+"</td><td>"+a[i].getElementsByTagName("price")[0].childNodes[0].nodeValue+"</td></tr></table>";
+                           }
+                       };
+                      
+                     // document.write("Name"+a[j].getElementsByTagname('bname')[0].childNodes[0].nodeValue+"<br>Author"+a[j].getElementsByTagname('author')[0].childNodes[0].nodeValue+"<br>Price"+a[j].getElementsByTagname('price')[0].childNodes[0].nodeValue);
+                               
+                    }
+                }
+                x.open("get","book.xml",true);
+                x.send();
+               
+            }
+        </script>
+    </body>
+</html>
