@@ -1,0 +1,33 @@
+
+<books>
+    <book>
+         <bookid>101</bookid>
+         <bname>ramayanam</bname>
+         <author>valmiki</author>
+         <price>500</price>
+    </book>
+     <book>
+         <bookid>102</bookid>
+         <bname>bagavath geethai</bname>
+         <author>krishna</author>
+         <price>700</price>
+    </book>
+     <book>
+         <bookid>103</bookid>
+         <bname>mahabaratham</bname>
+         <author>veedaviyasar</author>
+         <price>600</price>
+    </book>
+     <book>
+         <bookid>104</bookid>
+         <bname>XML Developer's Guide</bname>
+         <author>Gambardella</author>
+         <price>1000</price>
+    </book>
+     <book>
+         <bookid>105</bookid>
+         <bname>Midnight Rain</bname>
+         <author>Ralls</author>
+         <price>300</price>
+    </book>
+</books>
